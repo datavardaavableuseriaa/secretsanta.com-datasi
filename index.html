@@ -6,12 +6,27 @@
     <title>Secret Santa</title>
     <style>
         body {
-            background-image: url(canvas_challv_cnu.jpg); /* Replace with your image path */
-            background-size: cover; /* This will cover the entire background */
-            background-position: center; /* This will center the image */
-            background-repeat: no-repeat; /* This prevents the image from repeating */
-            height: 100vh; /* Make sure the body takes the full height of the viewport */
-            margin: 0; /* Remove default margin */
+            background-image: url(canvas_challv_cnu.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            background-attachment: fixed;
+            overflow: hidden; /* Prevent scrollbar from appearing */
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
         }
     </style>
     <link rel="stylesheet" href="app.css">
@@ -36,6 +51,23 @@
         </div>
     </div>
     <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.className = "snowflake";
+            snowflake.innerHTML = "❄"; // Snowflake character
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + "s"; // Random fall duration
+            document.body.appendChild(snowflake);
 
+            // Remove the snowflake after it falls
+            snowflake.addEventListener("animationend", () => {
+                snowflake.remove();
+            });
+        }
+
+        // Create snowflakes at intervals
+        setInterval(createSnowflake, 200); // Adjust the interval for more/less snowflakes
+    </script>
+</body>
+</html> 

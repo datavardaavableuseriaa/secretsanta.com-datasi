@@ -56,3 +56,17 @@ button:hover {
     margin-top: 20px; /* Space above output */
     color: #333; /* Darker text for output */
 }
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white; /* Change color as needed */
+    font-size: 1em; /* Adjust size */
+    pointer-events: none; /* Prevent mouse interaction */
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}

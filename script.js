@@ -86,3 +86,19 @@ function participantLogin() {
         output.innerHTML = `<p>მონაწილის სახელი ვერ მოიძებნა ან პაროლი არასწორია.</p>`;
     }
 }
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.className = "snowflake";
+    snowflake.innerHTML = "❄"; // You can use any snowflake character or image
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + "s"; // Random fall duration
+    document.body.appendChild(snowflake);
+
+    // Remove the snowflake after it falls
+    snowflake.addEventListener("animationend", () => {
+        snowflake.remove();
+    });
+}
+
+// Create snowflakes at intervals
+setInterval(createSnowflake, 200); // Adjust the interval for more/less snowflakes
