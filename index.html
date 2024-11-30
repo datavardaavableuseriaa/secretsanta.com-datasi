@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa</title>
+    <style>
+        body {
+            background-image: url(canvas_challv_cnu.jpg); /* Replace with your image path */
+            background-size: cover; /* This will cover the entire background */
+            background-position: center; /* This will center the image */
+            background-repeat: no-repeat; /* This prevents the image from repeating */
+            height: 100vh; /* Make sure the body takes the full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+    </style>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <h1>სეკრეტ სანტა</h1>
+        <div id="setup">
+            <label for="adminMode">გსურთ, რომ იყოს წამყვანი?</label>
+            <select id="adminMode">
+                <option value="yes">დიახ</option>
+                <option value="no">არა</option>
+            </select>
+            <label for="participants">მონაწილეების რაოდენობა:</label>
+            <input type="number" id="participants" min="2" placeholder="შეიყვანეთ რაოდენობა">
+            <button onclick="setupParticipants()">დაწყება</button>
+        </div>
+        <div id="assignments" style="display: none;">
+            <button id="adminButton" onclick="showAdminView()" style="display: none;">წამყვანის რეჟიმი</button>
+            <button onclick="participantLogin()">მონაწილის რეჟიმი</button>
+            <div id="output"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
